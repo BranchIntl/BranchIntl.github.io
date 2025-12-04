@@ -1,0 +1,11 @@
+source "https://rubygems.org"
+
+ruby '3.4.3'
+
+gem 'webrick'
+gem 'kramdown-parser-gfm'
+
+gem 'jekyll', '>= 3.8', '< 5.0'
+gem 'jekyll-feed', '>= 0.15.1', '<= 0.17'
+gem 'jekyll-paginate', '~> 1.1.0'
+gem 'jekyll-seo-tag', '>= 2.7.1', '<= 2.8'

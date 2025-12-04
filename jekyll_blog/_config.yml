@@ -1,0 +1,43 @@
+# SITE CONFIGURATION
+baseurl: "/engineering"
+url: "https://BranchIntl.github.io"
+
+# THEME-SPECIFIC CONFIGURATION
+title: Branch Engineering
+description: "Technical stories, architecture deep-dives, and practical lessons from the team building Branch’s global financial infrastructure."
+avatar: assets/img/logo.png
+favicon: assets/img/favicon.png
+
+header_text: Branch International Engineering Blog
+header_feature_image: assets/img/header/triangular.jpeg
+header_feature_image_responsive: true
+footer_text: Made with ❤️ by Branch Engineering Team
+
+# Blog
+excerpt: true
+post_navigation: true
+color_image: /assets/img/lineart.png
+
+# Features
+katex: true                                             # Enable if using math markup
+mermaid: default                                        # Enable mermaid-js for diagrams, use theme: base, forest, dark, default, neutral
+google_analytics:                                       # Measurement ID, e.g. "G-00000"
+cookie_consent: false                                   # To respect the usage of cookies
+color_theme: auto                                       # auto, dark or light
+
+# PAGINATION
+paginate: 5
+paginate_path: "/engineering/page:num"
+
+# PORTFOLIO
+collections:
+  portfolio:
+    output: true
+    permalink: /:collection/:name
+
+# BUILD SETTINGS
+sass:
+  style: compressed
+  quiet_deps: true
+plugins: [jekyll-paginate, jekyll-seo-tag, jekyll-feed]
+exclude: [".jekyll-cache", ".jekyll-metadata", ".idea", "vendor/*", "assets/node_modules/*", ".github/*"]
