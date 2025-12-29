@@ -10,9 +10,11 @@ layout: branch-default
 
     <div class="branch-header">
       <div class="header-logo">
-        <svg width="120" height="45" viewBox="0 0 120 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <text x="0" y="32" font-family="sans-serif" font-size="28" font-weight="600" fill="#19355E">branch</text>
-        </svg>
+        <a href="{{ site.baseurl }}/">
+          <svg width="120" height="45" viewBox="0 0 120 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <text x="0" y="32" font-family="sans-serif" font-size="28" font-weight="600" fill="#19355E">branch</text>
+          </svg>
+        </a>
       </div>
       <div class="header-nav">
         <a href="#login">Login</a>
@@ -29,10 +31,13 @@ layout: branch-default
   <div class="branch-search-section">
     <div class="search-container">
       <div class="search-field">
-        <input type="text" placeholder="Search..." id="blog-search">
+        <input type="text" placeholder="Search..." id="branch-search-input">
       </div>
-      <button class="search-button" onclick="performSearch()">Search</button>
+      <button class="search-button" id="branch-search-button">Search</button>
     </div>
+
+    <!-- Search Results (hidden by default) -->
+    <div id="branch-search-results" class="branch-search-results" style="display: none;"></div>
 
     <!-- Blog Posts Grid -->
     <div class="branch-posts-grid" style="margin-top: 40px;">
@@ -50,7 +55,9 @@ layout: branch-default
           <div class="post-meta">
             <div class="post-category">
               {% if post.tags and post.tags.size > 0 %}
-                {{ post.tags[0] }}
+                <a href="{{ site.baseurl }}/tags#{{ post.tags[0] | cgi_escape }}">{{ post.tags[0] }}</a>
+              {% elsif post.categories and post.categories.size > 0 %}
+                <a href="{{ site.baseurl }}/categories#{{ post.categories[0] | cgi_escape }}">{{ post.categories[0] }}</a>
               {% else %}
                 Finance
               {% endif %}
@@ -169,18 +176,87 @@ layout: branch-default
   </footer>
 </div>
 
-<script>
-function performSearch() {
-  var searchTerm = document.getElementById('blog-search').value;
-  if (searchTerm) {
-    window.location.href = '{{ site.baseurl }}/search?q=' + encodeURIComponent(searchTerm);
-  }
-}
+<script type="text/javascript">
+(function() {
+  let isSearchActive = false;
 
-// Allow search on Enter key
-document.getElementById('blog-search').addEventListener('keypress', function(e) {
-  if (e.key === 'Enter') {
-    performSearch();
+  // Initialize SimpleJekyllSearch
+  const searchInstance = SimpleJekyllSearch({
+    searchInput: document.getElementById('branch-search-input'),
+    resultsContainer: document.getElementById('branch-search-results'),
+    json: '{{ "/assets/data/search.liquid" | relative_url }}',
+    searchResultTemplate: `
+      <div class="branch-search-result-card">
+        <img src="{thumbnail}" alt="{title}" class="result-image" onerror="this.src='{{ site.avatar | relative_url }}'">
+        <div class="result-category">{tags}</div>
+        <h3 class="result-title"><a href="{url}">{title}</a></h3>
+        <p class="result-excerpt">{excerpt}</p>
+        <p class="result-meta">{date}</p>
+        <a href="{url}" class="result-read-more">Read More</a>
+      </div>
+    `,
+    noResultsText: '<div class="no-results">{{ site.data.language.str_no_result_found | default: "No results found" }}</div>',
+    limit: 10,
+    fuzzy: false,
+    exclude: []
+  });
+
+  const searchInput = document.getElementById('branch-search-input');
+  const searchButton = document.getElementById('branch-search-button');
+  const searchResultsContainer = document.getElementById('branch-search-results');
+  const postsGrid = document.querySelector('.branch-posts-grid');
+  const pagination = document.querySelector('.branch-pagination');
+
+  // Show/hide search results
+  function toggleSearchResults(show) {
+    if (show) {
+      searchResultsContainer.style.display = 'grid';
+      if (postsGrid) postsGrid.style.display = 'none';
+      if (pagination) pagination.style.display = 'none';
+      isSearchActive = true;
+    } else {
+      searchResultsContainer.style.display = 'none';
+      if (postsGrid) postsGrid.style.display = 'grid';
+      if (pagination) pagination.style.display = 'flex';
+      isSearchActive = false;
+    }
   }
-});
+
+  // Handle search input
+  searchInput.addEventListener('input', function(e) {
+    const query = e.target.value.trim();
+    if (query.length > 0) {
+      toggleSearchResults(true);
+    } else {
+      toggleSearchResults(false);
+    }
+  });
+
+  // Handle search button click
+  searchButton.addEventListener('click', function(e) {
+    e.preventDefault();
+    const query = searchInput.value.trim();
+    if (query.length > 0) {
+      toggleSearchResults(true);
+      // Trigger search by simulating input event
+      searchInput.dispatchEvent(new Event('input'));
+    }
+  });
+
+  // Handle Enter key
+  searchInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      searchButton.click();
+    }
+  });
+
+  // Clear button functionality (optional)
+  searchInput.addEventListener('keyup', function(e) {
+    if (e.key === 'Escape') {
+      searchInput.value = '';
+      toggleSearchResults(false);
+    }
+  });
+})();
 </script>

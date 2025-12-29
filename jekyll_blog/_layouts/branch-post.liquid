@@ -6,9 +6,11 @@ layout: branch-default
   <div class="branch-post-header">
     <div class="branch-post-header-content">
       <div class="header-logo">
-        <svg width="120" height="45" viewBox="0 0 120 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <text x="0" y="32" font-family="sans-serif" font-size="28" font-weight="600" fill="#19355E">branch</text>
-        </svg>
+        <a href="{{ site.baseurl }}/">
+          <svg width="120" height="45" viewBox="0 0 120 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <text x="0" y="32" font-family="sans-serif" font-size="28" font-weight="600" fill="#19355E">branch</text>
+          </svg>
+        </a>
       </div>
       <div class="header-nav">
         <a href="#login">Login</a>
@@ -25,7 +27,9 @@ layout: branch-default
       <div class="post-meta-header">
         <div class="post-category-tag">
           {% if page.tags and page.tags.size > 0 %}
-            {{ page.tags[0] }}
+            <a href="{{ site.baseurl }}/tags#{{ page.tags[0] | cgi_escape }}">{{ page.tags[0] }}</a>
+          {% elsif page.categories and page.categories.size > 0 %}
+            <a href="{{ site.baseurl }}/categories#{{ page.categories[0] | cgi_escape }}">{{ page.categories[0] }}</a>
           {% else %}
             Finance
           {% endif %}
@@ -58,6 +62,31 @@ layout: branch-default
       <!-- Post Body -->
       <div class="post-body-content">
         {{ content }}
+      </div>
+
+      <!-- Tags and Categories -->
+      <div class="post-tags-categories">
+        {% if page.categories and page.categories.size > 0 %}
+        <div class="post-taxonomy-section">
+          <h4>Categories:</h4>
+          <div class="taxonomy-items">
+            {% for category in page.categories %}
+            <a href="{{ site.baseurl }}/categories#{{ category | cgi_escape }}" class="taxonomy-tag">{{ category }}</a>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+
+        {% if page.tags and page.tags.size > 0 %}
+        <div class="post-taxonomy-section">
+          <h4>Tags:</h4>
+          <div class="taxonomy-items">
+            {% for tag in page.tags %}
+            <a href="{{ site.baseurl }}/tags#{{ tag | cgi_escape }}" class="taxonomy-tag">{{ tag }}</a>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
       </div>
 
       <!-- Social Share Buttons -->

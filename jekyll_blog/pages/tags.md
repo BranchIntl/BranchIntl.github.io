@@ -1,8 +1,7 @@
 ---
-layout: tags
+layout: branch-tags
 title: Tags
 permalink: /tags/
 icon: "fa-tags"
 position: 5
 ---
-

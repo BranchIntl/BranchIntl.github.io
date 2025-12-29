@@ -1,0 +1,219 @@
+---
+layout: branch-default
+---
+<div class="branch-blog-home">
+  <!-- Hero Section with Branch Header -->
+  <div class="branch-hero">
+    <!-- Decorative background circles -->
+    <div class="hero-bg-circle hero-bg-circle-left"></div>
+    <div class="hero-bg-circle hero-bg-circle-right"></div>
+
+    <div class="branch-header">
+      <div class="header-logo">
+        <a href="{{ site.baseurl }}/">
+          <svg width="120" height="45" viewBox="0 0 120 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <text x="0" y="32" font-family="sans-serif" font-size="28" font-weight="600" fill="#19355E">branch</text>
+          </svg>
+        </a>
+      </div>
+      <div class="header-nav">
+        <a href="#login">Login</a>
+        <a href="#faq">FAQ</a>
+        <a href="#partner">Partner with us</a>
+      </div>
+    </div>
+
+    <h1 class="hero-title">Categories</h1>
+    <p class="hero-subtitle">Browse posts by category</p>
+  </div>
+
+  <!-- Categories Section -->
+  <div class="branch-categories-section">
+    <!-- Category Navigation -->
+    <div class="category-nav">
+      {% for category in site.categories %}
+        <a href="#{{ category | first | cgi_escape }}" class="category-nav-link">
+          {{ category | first }} <span class="count">({{ category | last | size }})</span>
+        </a>
+      {% endfor %}
+
+      {% assign uncategorized_count = 0 %}
+      {% for post in site.posts %}
+        {% if post.categories.size == 0 %}
+          {% assign uncategorized_count = uncategorized_count | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+      {% if uncategorized_count > 0 %}
+        <a href="#uncategorized" class="category-nav-link">
+          Uncategorized <span class="count">({{ uncategorized_count }})</span>
+        </a>
+      {% endif %}
+    </div>
+
+    <!-- Category Groups -->
+    <div class="branch-category-groups">
+      {% for category in site.categories %}
+        {% capture group %}{{ category | first }}{% endcapture %}
+        <div class="category-group" id="{{ group | cgi_escape }}">
+          <h2 class="category-group-title">{{ group }}</h2>
+
+          <div class="branch-posts-grid">
+            {% for post in site.categories[group] %}
+            <div class="branch-post-card">
+              {% if post.thumbnail %}
+              <img src="{{ post.thumbnail | relative_url }}" alt="{{ post.title }}" class="post-image">
+              {% elsif post.feature-img %}
+              <img src="{{ post.feature-img | relative_url }}" alt="{{ post.title }}" class="post-image">
+              {% else %}
+              <img src="{{ site.avatar | relative_url }}" alt="{{ post.title }}" class="post-image">
+              {% endif %}
+
+              <div class="post-meta-inline">
+                <div class="post-category-inline">
+                  {% if post.tags and post.tags.size > 0 %}
+                    <a href="{{ site.baseurl }}/tags#{{ post.tags[0] | cgi_escape }}">{{ post.tags[0] }}</a>
+                  {% else %}
+                    {{ group }}
+                  {% endif %}
+                </div>
+                <div class="post-read-time">5 min read</div>
+              </div>
+
+              <h2 class="post-title">
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+              </h2>
+
+              <p class="post-info">
+                {{ post.date | date: "%b %d, %Y" }}
+                {% if post.author %}
+                 | by {{ post.author }}
+                {% endif %}
+              </p>
+
+              <p class="post-excerpt">
+                {% if post.excerpt %}
+                  {{ post.excerpt | strip_html | truncate: 180 }}
+                {% else %}
+                  {{ post.content | strip_html | truncate: 180 }}
+                {% endif %}
+              </p>
+
+              <a href="{{ post.url | relative_url }}" class="post-read-more">Read More</a>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+
+      <!-- Uncategorized posts -->
+      {% if uncategorized_count > 0 %}
+        <div class="category-group" id="uncategorized">
+          <h2 class="category-group-title">Uncategorized</h2>
+
+          <div class="branch-posts-grid">
+            {% for post in site.posts %}
+              {% if post.categories.size == 0 %}
+              <div class="branch-post-card">
+                {% if post.thumbnail %}
+                <img src="{{ post.thumbnail | relative_url }}" alt="{{ post.title }}" class="post-image">
+                {% elsif post.feature-img %}
+                <img src="{{ post.feature-img | relative_url }}" alt="{{ post.title }}" class="post-image">
+                {% else %}
+                <img src="{{ site.avatar | relative_url }}" alt="{{ post.title }}" class="post-image">
+                {% endif %}
+
+                <div class="post-meta-inline">
+                  <div class="post-category-inline">
+                    {% if post.tags and post.tags.size > 0 %}
+                      <a href="{{ site.baseurl }}/tags#{{ post.tags[0] | cgi_escape }}">{{ post.tags[0] }}</a>
+                    {% else %}
+                      Uncategorized
+                    {% endif %}
+                  </div>
+                  <div class="post-read-time">5 min read</div>
+                </div>
+
+                <h2 class="post-title">
+                  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                </h2>
+
+                <p class="post-info">
+                  {{ post.date | date: "%b %d, %Y" }}
+                  {% if post.author %}
+                   | by {{ post.author }}
+                  {% endif %}
+                </p>
+
+                <p class="post-excerpt">
+                  {% if post.excerpt %}
+                    {{ post.excerpt | strip_html | truncate: 180 }}
+                  {% else %}
+                    {{ post.content | strip_html | truncate: 180 }}
+                  {% endif %}
+                </p>
+
+                <a href="{{ post.url | relative_url }}" class="post-read-more">Read More</a>
+              </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Branch Footer -->
+  <footer class="branch-footer">
+    <div class="branch-footer-content">
+      <div class="footer-section">
+        <h3>Curious about Branch?</h3>
+        <ul>
+          <li><a href="/about">About</a></li>
+          <li><a href="/how-it-works">How it works</a></li>
+          <li><a href="/news">In the news</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="/policies">Policies and Cookie</a></li>
+          <li><a href="/concerns">Concerns Information</a></li>
+          <li><a href="/customer-awareness">Customer Awareness</a></li>
+          <li><a href="/grievance">Gi-Sunce Redressal</a></li>
+          <li><a href="/partners">Our Partners</a></li>
+          <li><a href="/collections">Collections Partners</a></li>
+          <li><a href="/regulatory">Understanding Regulatory Digital Lending Operations</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Download</h3>
+        <div class="download-icon">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <rect width="40" height="40" rx="8" fill="#fff"/>
+            <path d="M20 10v20m-8-8l8 8 8-8" stroke="#19355E" stroke-width="2"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h3>Contact Information</h3>
+        <p>Branch International Financial Services Pvt Ltd.<br>
+        JC AWFIS, Baner Solutions, 4th floor,<br>
+        Survey No.115/1, Aundh - Baner Link Road, Baner,<br>
+        Chamber Road,<br>
+        Mumbai, Maharashtra 400057</p>
+        <p>+91 8655597825</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <h4>Useful Links</h4>
+      <div class="footer-links">
+        <a href="/sachet-portal">Sachet Portal</a>
+        <a href="/rbi-complaint">RBI Complaint</a>
+      </div>
+    </div>
+  </footer>
+</div>

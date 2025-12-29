@@ -1,5 +1,5 @@
 ---
-layout: categories
+layout: branch-categories
 title: Categories
 permalink: /categories/
 hide: true
