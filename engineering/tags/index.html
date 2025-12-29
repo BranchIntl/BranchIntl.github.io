@@ -1,500 +1,426 @@
 <!DOCTYPE html>
 <!--
-    Type on Strap jekyll theme v2.4.13
-    Theme free for personal and commercial use under the MIT license
-    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+    Branch Blog Custom Layout
 -->
 <html lang="en">
   
   <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5"> <!-- Theme Mode--> <script> const darkBtn = "Dark"; const lightBtn = "Light"; const isAutoTheme = true; const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; if (isAutoTheme) { document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme') ?? preferredTheme); } else { document.documentElement.setAttribute('data-theme', "auto"); } </script> <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)--> <script defer src="/engineering/assets/js/main.min.js"></script> <!-- CSS --> <link rel="stylesheet" href="/engineering/assets/css/main.css"> <!--Favicon--> <link rel="shortcut icon" href="/engineering/assets/img/favicon.png" type="image/x-icon"> <!-- Preconnect to Cusdis for faster loading when comments become visible --> <!-- KaTeX 0.16.25 --> <script defer src="/engineering/assets/js/vendor/katex.min.js"></script> <script defer src="/engineering/assets/js/vendor/katex.auto-render.min.js" onload="renderMathInElement(document.body);"></script> <!-- Mermaid 11.12.0 --> <script defer src="/engineering/assets/js/vendor/mermaid.min.js"></script> <!-- Simple Jekyll Search 1.10.0 --> <script src="/engineering/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script> <!-- Google Analytics / Cookie Consent --> <script> const cookieName = 'cookie-notice-dismissed-https://BranchIntl.github.io'; const isCookieConsent = 'false'; const analyticsName = ''; const analyticsNameGA4 = ''; </script> <!-- seo tags --> <meta property="og:image" content="https://branchintl.github.io/engineering/assets/img/header/triangular.jpeg"> <meta property="og:type" content="website" /> <!-- Begin Jekyll SEO tag v2.8.0 --> <title>Tags | Branch Engineering</title> <meta name="generator" content="Jekyll v4.4.1" /> <meta property="og:title" content="Tags" /> <meta property="og:locale" content="en_US" /> <meta name="description" content="Technical stories, architecture deep-dives, and practical lessons from the team building Branch’s global financial infrastructure." /> <meta property="og:description" content="Technical stories, architecture deep-dives, and practical lessons from the team building Branch’s global financial infrastructure." /> <link rel="canonical" href="https://branchintl.github.io/engineering/tags/" /> <meta property="og:url" content="https://branchintl.github.io/engineering/tags/" /> <meta property="og:site_name" content="Branch Engineering" /> <meta property="og:type" content="website" /> <meta name="twitter:card" content="summary" /> <meta property="twitter:title" content="Tags" /> <script type="application/ld+json"> {"@context":"https://schema.org","@type":"WebPage","description":"Technical stories, architecture deep-dives, and practical lessons from the team building Branch’s global financial infrastructure.","headline":"Tags","url":"https://branchintl.github.io/engineering/tags/"}</script> <!-- End Jekyll SEO tag --> <!-- RSS --> <link rel="alternate" type="application/atom+xml" title="Branch Engineering" href="https://branchintl.github.io/engineering/feed.xml"/> <link type="application/atom+xml" rel="alternate" href="https://branchintl.github.io/engineering/feed.xml" title="Branch Engineering" /> <!-- Twitter Cards --> <meta name="twitter:title" content="Tags"> <meta name="twitter:description" content="Branch International Engineering Blog"> <meta name="twitter:card" content="summary"> <meta name="twitter:image" content="https://branchintl.github.io/engineering/assets/img/header/triangular.jpeg"> <meta name="twitter:image:alt" content="Tags"> </head>
   <body>
-    
-    <header class="site-header"> <!-- Logo and title --> <div class="branding"> <a href="/engineering/"> <img alt="logo img" class="avatar" src="/engineering/assets/img/logo.png" loading="lazy"/> </a> <a class="site-title" aria-label="Branch Engineering" href="/engineering/"> Branch Engineering </a> </div> <!-- Toggle menu --> <nav class="clear"> <a aria-label="pull" id="pull" class="toggle" href="#"> <i class="fas fa-bars fa-lg"></i> </a> <!-- Menu --> <ul class="hide"> <li class="separator"> | </li> <li> <a class="clear" aria-label="About" title="About" href="/engineering/about/"> <span class="navbar-label ">About</span> </a> </li> <li class="separator"> | </li> <li> <a class="clear" aria-label="Search" title="Search" href="/engineering/search/"> <i class="navbar-icon fas fa-search" aria-hidden="true"></i> <span class="navbar-label navbar-label-with-icon">Search</span> </a> </li> <li class="separator"> | </li> <li> <a class="clear" aria-label="Tags" title="Tags" href="/engineering/tags/"> <i class="navbar-icon fas fa-tags" aria-hidden="true"></i> <span class="navbar-label navbar-label-with-icon">Tags</span> </a> </li> <li class="separator"> | </li> <li><a id="theme-toggle" title="Tags " aria-label="Tags" onclick="themeToggle()"></a></li> </ul> </nav> </header>
-    <main class="content">
-      <article >
-    <header id="main" style="background-image: url('')">
-        <div class="title-padder">
-            
-                <h1 id="Tags" class="title"> Tags</h1>
-                
-            
-        </div>
-    </header>
-    <section class="post-content">
-    
-            <div class="home">
-
-    <!-- cycles through posts to get tags -->
-    
-    
-
-    <!-- cycles through portfolio collection to get tags -->
-    
-    
-
-    <!-- cycles through pages to get tags -->
-    
-
-    <!-- Displays the list of tags-->
-    
-
-
-  <div class="tag-list" data-testid="tag-list">
-    <ul>
-      
-        <li class="meta">Tags</li>
-      
-
-      
-        <li><a class="button" data-testid="tag-link" href="#A+Tag">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> A Tag</p>
-        </a></li>
-      
-        <li><a class="button" data-testid="tag-link" href="#Highlight">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> Highlight</p>
-        </a></li>
-      
-        <li><a class="button" data-testid="tag-link" href="#Katex">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> Katex</p>
-        </a></li>
-      
-        <li><a class="button" data-testid="tag-link" href="#Markdown">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> Markdown</p>
-        </a></li>
-      
-        <li><a class="button" data-testid="tag-link" href="#Mermaid">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> Mermaid</p>
-        </a></li>
-      
-    </ul>
-  </div>
-
-
-
-    <!-- Displays the posts and pages that contains the tag-->
-    <div class="posts">
-        
-        <h3 id="A+Tag" class="tag-anchor">
-            <a href="#A+Tag"><i class="fas fa-tag fa-fw fa-sm"></i> A Tag</a>
-            <a href="#Tags" style="float: right"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"> </i> </a>
-
-        </h3>
-
-        <!-- Posts and collection for each tags -->
-        <div class="tag-posts">
-
-            <!-- Pages -->
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-
-            <!-- Posts -->
-            
-            
-            
-            
-            <h5 class="tag-title">
-                <a href="/engineering/demo/2019/06/30/sample-post.html">
-                    <i class="far fa-file-alt" aria-hidden="true"></i>
-                    Sample post
-                </a>
-
-                
-
-
-<div class="post-info">
-  <div class="post-meta">
-    
-    
-    <p class="meta">June 30, 2019</p>
-  </div>
-  
-</div>
-
-            </h5>
-            
-            
-            
-            
-            
-            
-
-            <!-- Portfolio -->
-            
-
-        </div>
-        
-        <h3 id="Highlight" class="tag-anchor">
-            <a href="#Highlight"><i class="fas fa-tag fa-fw fa-sm"></i> Highlight</a>
-            <a href="#Tags" style="float: right"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"> </i> </a>
-
-        </h3>
-
-        <!-- Posts and collection for each tags -->
-        <div class="tag-posts">
-
-            <!-- Pages -->
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-
-            <!-- Posts -->
-            
-            
-            <h5 class="tag-title">
-                <a href="/engineering/2019/11/02/Tech-stuff-example.html">
-                    <i class="far fa-file-alt" aria-hidden="true"></i>
-                    Tech Stuff example
-                </a>
-
-                
-
-
-<div class="post-info">
-  <div class="post-meta">
-    
-    
-    <p class="meta">November 02, 2019</p>
-  </div>
-  
-</div>
-
-            </h5>
-            
-            
-            
-            
-            
-            
-            
-            <h5 class="tag-title">
-                <a href="/engineering/syntax/2014/08/08/Markup-Syntax-Highlighting.html">
-                    <i class="far fa-file-alt" aria-hidden="true"></i>
-                    Markup: Syntax Highlighting
-                </a>
-
-                
-
-
-<div class="post-info">
-  <div class="post-meta">
-    
-    
-    <p class="meta">August 08, 2014</p>
-  </div>
-  
-</div>
-
-            </h5>
-            
-            
-
-            <!-- Portfolio -->
-            
-
-        </div>
-        
-        <h3 id="Katex" class="tag-anchor">
-            <a href="#Katex"><i class="fas fa-tag fa-fw fa-sm"></i> Katex</a>
-            <a href="#Tags" style="float: right"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"> </i> </a>
-
-        </h3>
-
-        <!-- Posts and collection for each tags -->
-        <div class="tag-posts">
-
-            <!-- Pages -->
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-
-            <!-- Posts -->
-            
-            
-            
-            
-            <h5 class="tag-title">
-                <a href="/engineering/demo/2019/06/30/sample-post.html">
-                    <i class="far fa-file-alt" aria-hidden="true"></i>
-                    Sample post
-                </a>
-
-                
-
-
-<div class="post-info">
-  <div class="post-meta">
-    
-    
-    <p class="meta">June 30, 2019</p>
-  </div>
-  
-</div>
-
-            </h5>
-            
-            
-            
-            
-            
-            
-
-            <!-- Portfolio -->
-            
-
-        </div>
-        
-        <h3 id="Markdown" class="tag-anchor">
-            <a href="#Markdown"><i class="fas fa-tag fa-fw fa-sm"></i> Markdown</a>
-            <a href="#Tags" style="float: right"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"> </i> </a>
-
-        </h3>
-
-        <!-- Posts and collection for each tags -->
-        <div class="tag-posts">
-
-            <!-- Pages -->
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-
-            <!-- Posts -->
-            
-            
-            <h5 class="tag-title">
-                <a href="/engineering/2019/11/02/Tech-stuff-example.html">
-                    <i class="far fa-file-alt" aria-hidden="true"></i>
-                    Tech Stuff example
-                </a>
-
-                
-
-
-<div class="post-info">
-  <div class="post-meta">
-    
-    
-    <p class="meta">November 02, 2019</p>
-  </div>
-  
-</div>
-
-            </h5>
-            
-            
-            
-            
-            
-            
-            
-            <h5 class="tag-title">
-                <a href="/engineering/syntax/2014/08/08/Markup-Syntax-Highlighting.html">
-                    <i class="far fa-file-alt" aria-hidden="true"></i>
-                    Markup: Syntax Highlighting
-                </a>
-
-                
-
-
-<div class="post-info">
-  <div class="post-meta">
-    
-    
-    <p class="meta">August 08, 2014</p>
-  </div>
-  
-</div>
-
-            </h5>
-            
-            
-
-            <!-- Portfolio -->
-            
-
-        </div>
-        
-        <h3 id="Mermaid" class="tag-anchor">
-            <a href="#Mermaid"><i class="fas fa-tag fa-fw fa-sm"></i> Mermaid</a>
-            <a href="#Tags" style="float: right"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"> </i> </a>
-
-        </h3>
-
-        <!-- Posts and collection for each tags -->
-        <div class="tag-posts">
-
-            <!-- Pages -->
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-
-            <!-- Posts -->
-            
-            
-            
-            
-            
-            
-            <h5 class="tag-title">
-                <a href="/engineering/2016/12/03/Mermaid.html">
-                    <i class="far fa-file-alt" aria-hidden="true"></i>
-                    Mermaid Chart
-                </a>
-
-                
-
-
-<div class="post-info">
-  <div class="post-meta">
-    
-    
-    <p class="meta">December 03, 2016</p>
-  </div>
-  
-</div>
-
-            </h5>
-            
-            
-            
-            
-
-            <!-- Portfolio -->
-            
-
-        </div>
-        
-
+    <main class="content" style="padding: 0; margin: 0; max-width: none;">
+      <div class="branch-blog-home">
+  <!-- Hero Section with Branch Header -->
+  <div class="branch-hero">
+    <!-- Decorative background circles -->
+    <div class="hero-bg-circle hero-bg-circle-left"></div>
+    <div class="hero-bg-circle hero-bg-circle-right"></div>
+
+    <div class="branch-header">
+      <div class="header-logo">
+        <a href="/engineering/">
+          <svg width="120" height="45" viewBox="0 0 120 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <text x="0" y="32" font-family="sans-serif" font-size="28" font-weight="600" fill="#19355E">branch</text>
+          </svg>
+        </a>
+      </div>
+      <div class="header-nav">
+        <a href="#login">Login</a>
+        <a href="#faq">FAQ</a>
+        <a href="#partner">Partner with us</a>
+      </div>
     </div>
-</div>
 
-            
-    </section>
-    <!-- Category and Tag list -->
-    <div class="tag-category-container">
-        <!-- Category list -->
+    <h1 class="hero-title">Tags</h1>
+    <p class="hero-subtitle">Browse posts by tag</p>
+  </div>
+
+  <!-- Tags Section -->
+  <div class="branch-categories-section">
+    <!-- Collect all tags -->
+    
+    
+    
+
+    
+    
+
+    <!-- Tag Navigation -->
+    <div class="category-nav">
+      
         
+        <a href="#A+Tag" class="category-nav-link">
+          A Tag <span class="count">(1)</span>
+        </a>
+      
         
-
-
-  <div class="category-list"></div>
-
-
-
-
-        <!-- Tag list for portfolio -->
+        <a href="#Highlight" class="category-nav-link">
+          Highlight <span class="count">(2)</span>
+        </a>
+      
         
+        <a href="#Katex" class="category-nav-link">
+          Katex <span class="count">(1)</span>
+        </a>
+      
         
-
-
-  <div class="tag-list"></div>
-
-
+        <a href="#Markdown" class="category-nav-link">
+          Markdown <span class="count">(2)</span>
+        </a>
+      
+        
+        <a href="#Mermaid" class="category-nav-link">
+          Mermaid <span class="count">(1)</span>
+        </a>
+      
     </div>
-</article>
+
+    <!-- Tag Groups -->
+    <div class="branch-category-groups">
+      
+        
+        <div class="category-group" id="A+Tag">
+          <h2 class="category-group-title">A Tag</h2>
+
+          <div class="branch-posts-grid">
+            
+            <div class="branch-post-card">
+              
+              <img src="/engineering/assets/img/logo.png" alt="Sample post" class="post-image">
+              
+
+              <div class="post-meta-inline">
+                <div class="post-category-inline">
+                  <a href="/engineering/tags#A+Tag">A Tag</a>
+                </div>
+                <div class="post-read-time">5 min read</div>
+              </div>
+
+              <h2 class="post-title">
+                <a href="/engineering/demo/2019/06/30/sample-post.html">Sample post</a>
+              </h2>
+
+              <p class="post-info">
+                Jun 30, 2019
+                
+                 | by danish
+                
+              </p>
+
+              <p class="post-excerpt">
+                
+                  Consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.
+Praese...
+                
+              </p>
+
+              <a href="/engineering/demo/2019/06/30/sample-post.html" class="post-read-more">Read More</a>
+            </div>
+            
+          </div>
+        </div>
+      
+        
+        <div class="category-group" id="Highlight">
+          <h2 class="category-group-title">Highlight</h2>
+
+          <div class="branch-posts-grid">
+            
+            <div class="branch-post-card">
+              
+              <img src="/engineering/assets/img/thumbnails/feature-img/circuit.jpeg" alt="Tech Stuff example" class="post-image">
+              
+
+              <div class="post-meta-inline">
+                <div class="post-category-inline">
+                  <a href="/engineering/tags#Highlight">Highlight</a>
+                </div>
+                <div class="post-read-time">5 min read</div>
+              </div>
+
+              <h2 class="post-title">
+                <a href="/engineering/2019/11/02/Tech-stuff-example.html">Tech Stuff example</a>
+              </h2>
+
+              <p class="post-info">
+                Nov 02, 2019
+                
+                 | by gagan93
+                
+              </p>
+
+              <p class="post-excerpt">
+                
+                  Let’s demo some code snippet, with some mermaid diagrams.
+Because if you put some code in your blog, you would at least make it:
+
+  Searchable
+  Good-looking
+
+
+                
+              </p>
+
+              <a href="/engineering/2019/11/02/Tech-stuff-example.html" class="post-read-more">Read More</a>
+            </div>
+            
+            <div class="branch-post-card">
+              
+              <img src="/engineering/assets/img/logo.png" alt="Markup: Syntax Highlighting" class="post-image">
+              
+
+              <div class="post-meta-inline">
+                <div class="post-category-inline">
+                  <a href="/engineering/tags#Highlight">Highlight</a>
+                </div>
+                <div class="post-read-time">5 min read</div>
+              </div>
+
+              <h2 class="post-title">
+                <a href="/engineering/syntax/2014/08/08/Markup-Syntax-Highlighting.html">Markup: Syntax Highlighting</a>
+              </h2>
+
+              <p class="post-info">
+                Aug 08, 2014
+                
+                 | by gagan93
+                
+              </p>
+
+              <p class="post-excerpt">
+                
+                  Syntax highlighting[^1] is a feature that displays source code.
+This feature facilitates writing in a structured language such as a programming language or a markup language as ...
+                
+              </p>
+
+              <a href="/engineering/syntax/2014/08/08/Markup-Syntax-Highlighting.html" class="post-read-more">Read More</a>
+            </div>
+            
+          </div>
+        </div>
+      
+        
+        <div class="category-group" id="Katex">
+          <h2 class="category-group-title">Katex</h2>
+
+          <div class="branch-posts-grid">
+            
+            <div class="branch-post-card">
+              
+              <img src="/engineering/assets/img/logo.png" alt="Sample post" class="post-image">
+              
+
+              <div class="post-meta-inline">
+                <div class="post-category-inline">
+                  <a href="/engineering/tags#Katex">Katex</a>
+                </div>
+                <div class="post-read-time">5 min read</div>
+              </div>
+
+              <h2 class="post-title">
+                <a href="/engineering/demo/2019/06/30/sample-post.html">Sample post</a>
+              </h2>
+
+              <p class="post-info">
+                Jun 30, 2019
+                
+                 | by danish
+                
+              </p>
+
+              <p class="post-excerpt">
+                
+                  Consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.
+Praese...
+                
+              </p>
+
+              <a href="/engineering/demo/2019/06/30/sample-post.html" class="post-read-more">Read More</a>
+            </div>
+            
+          </div>
+        </div>
+      
+        
+        <div class="category-group" id="Markdown">
+          <h2 class="category-group-title">Markdown</h2>
+
+          <div class="branch-posts-grid">
+            
+            <div class="branch-post-card">
+              
+              <img src="/engineering/assets/img/thumbnails/feature-img/circuit.jpeg" alt="Tech Stuff example" class="post-image">
+              
+
+              <div class="post-meta-inline">
+                <div class="post-category-inline">
+                  <a href="/engineering/tags#Markdown">Markdown</a>
+                </div>
+                <div class="post-read-time">5 min read</div>
+              </div>
+
+              <h2 class="post-title">
+                <a href="/engineering/2019/11/02/Tech-stuff-example.html">Tech Stuff example</a>
+              </h2>
+
+              <p class="post-info">
+                Nov 02, 2019
+                
+                 | by gagan93
+                
+              </p>
+
+              <p class="post-excerpt">
+                
+                  Let’s demo some code snippet, with some mermaid diagrams.
+Because if you put some code in your blog, you would at least make it:
+
+  Searchable
+  Good-looking
+
+
+                
+              </p>
+
+              <a href="/engineering/2019/11/02/Tech-stuff-example.html" class="post-read-more">Read More</a>
+            </div>
+            
+            <div class="branch-post-card">
+              
+              <img src="/engineering/assets/img/logo.png" alt="Markup: Syntax Highlighting" class="post-image">
+              
+
+              <div class="post-meta-inline">
+                <div class="post-category-inline">
+                  <a href="/engineering/tags#Markdown">Markdown</a>
+                </div>
+                <div class="post-read-time">5 min read</div>
+              </div>
+
+              <h2 class="post-title">
+                <a href="/engineering/syntax/2014/08/08/Markup-Syntax-Highlighting.html">Markup: Syntax Highlighting</a>
+              </h2>
+
+              <p class="post-info">
+                Aug 08, 2014
+                
+                 | by gagan93
+                
+              </p>
+
+              <p class="post-excerpt">
+                
+                  Syntax highlighting[^1] is a feature that displays source code.
+This feature facilitates writing in a structured language such as a programming language or a markup language as ...
+                
+              </p>
+
+              <a href="/engineering/syntax/2014/08/08/Markup-Syntax-Highlighting.html" class="post-read-more">Read More</a>
+            </div>
+            
+          </div>
+        </div>
+      
+        
+        <div class="category-group" id="Mermaid">
+          <h2 class="category-group-title">Mermaid</h2>
+
+          <div class="branch-posts-grid">
+            
+            <div class="branch-post-card">
+              
+              <img src="/engineering/assets/img/logo.png" alt="Mermaid Chart" class="post-image">
+              
+
+              <div class="post-meta-inline">
+                <div class="post-category-inline">
+                  <a href="/engineering/tags#Mermaid">Mermaid</a>
+                </div>
+                <div class="post-read-time">5 min read</div>
+              </div>
+
+              <h2 class="post-title">
+                <a href="/engineering/2016/12/03/Mermaid.html">Mermaid Chart</a>
+              </h2>
+
+              <p class="post-info">
+                Dec 03, 2016
+                
+                 | by danish
+                
+              </p>
+
+              <p class="post-excerpt">
+                
+                  Mermaid
+
+                
+              </p>
+
+              <a href="/engineering/2016/12/03/Mermaid.html" class="post-read-more">Read More</a>
+            </div>
+            
+          </div>
+        </div>
+      
+    </div>
+  </div>
+
+  <!-- Branch Footer -->
+  <footer class="branch-footer">
+    <div class="branch-footer-content">
+      <div class="footer-section">
+        <h3>Curious about Branch?</h3>
+        <ul>
+          <li><a href="/about">About</a></li>
+          <li><a href="/how-it-works">How it works</a></li>
+          <li><a href="/news">In the news</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="/policies">Policies and Cookie</a></li>
+          <li><a href="/concerns">Concerns Information</a></li>
+          <li><a href="/customer-awareness">Customer Awareness</a></li>
+          <li><a href="/grievance">Gi-Sunce Redressal</a></li>
+          <li><a href="/partners">Our Partners</a></li>
+          <li><a href="/collections">Collections Partners</a></li>
+          <li><a href="/regulatory">Understanding Regulatory Digital Lending Operations</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Download</h3>
+        <div class="download-icon">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <rect width="40" height="40" rx="8" fill="#fff"/>
+            <path d="M20 10v20m-8-8l8 8 8-8" stroke="#19355E" stroke-width="2"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h3>Contact Information</h3>
+        <p>Branch International Financial Services Pvt Ltd.<br>
+        JC AWFIS, Baner Solutions, 4th floor,<br>
+        Survey No.115/1, Aundh - Baner Link Road, Baner,<br>
+        Chamber Road,<br>
+        Mumbai, Maharashtra 400057</p>
+        <p>+91 8655597825</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <h4>Useful Links</h4>
+      <div class="footer-links">
+        <a href="/sachet-portal">Sachet Portal</a>
+        <a href="/rbi-complaint">RBI Complaint</a>
+      </div>
+    </div>
+  </footer>
+</div>
 
     </main>
-    
-    <footer class="site-footer"> <p class="text"> Made with ❤️ by Branch Engineering Team</p> <div class="footer-icons"> <ul> <!-- Social icons from Font Awesome, if enabled --> <li> <a feed.xml href="/engineering/feed.xml" title="Follow RSS feed" target="_blank"> <span class="fa-stack fa-lg"> <i class="fas fa-circle fa-stack-2x"></i> <i class="fas fa-rss fa-stack-1x fa-inverse"></i> </span> </a> </li> <li> <a href="https://github.com/BranchIntl" title="Follow on Github" target="_blank" rel="noopener"> <span class="fa-stack fa-lg"> <i class="fas fa-circle fa-stack-2x"></i> <i class="fab fa-github fa-stack-1x fa-inverse"></i> </span> </a> </li> </ul> </div> <script type="module"> mermaid.initialize({ startOnLoad: false, theme: "default" }); mermaid.run({ nodes: [...document.querySelectorAll('.language-mermaid'), ...document.querySelectorAll('.mermaid')] }); </script> </footer>
   </body>
 </html>
