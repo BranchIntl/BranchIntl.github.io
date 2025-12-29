@@ -1,12 +1,12 @@
 ---
-layout: post
+layout: branch-post
 title: "Markup: Syntax Highlighting"
 author: gagan93
 tags: [Highlight, Markdown]
 categories: Syntax
 ---
 
-Syntax highlighting[^1] is a feature that displays source code. 
+Syntax highlighting[^1] is a feature that displays source code.
 This feature facilitates writing in a structured language such as a programming language or a markup language as it makes import things visually distinct.
 
 
@@ -77,7 +77,7 @@ Indentation matters. Be sure the indent of the code block aligns with the first 
    print_hi('Tom')
    #=> prints 'Hi, Tom' to STDOUT.
    ```
-        
+
 3. Now you can do this.
 
 ### GitHub Gist Embed

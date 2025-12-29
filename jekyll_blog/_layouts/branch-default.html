@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<!--
+    Branch Blog Custom Layout
+-->
+<html lang="en">
+  {% capture _head %}{% include default/head.liquid %}{% endcapture %}
+  {{ _head | split: " " | join: " "}}
+  <body>
+    <main class="content" style="padding: 0; margin: 0; max-width: none;">
+      {{ content }}
+    </main>
+  </body>
+</html>

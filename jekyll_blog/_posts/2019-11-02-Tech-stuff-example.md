@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: branch-post
 title: Tech Stuff example
 color: rgb(250, 50, 50)
 feature-img: "assets/img/feature-img/circuit.jpeg"

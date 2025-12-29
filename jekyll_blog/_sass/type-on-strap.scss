@@ -20,20 +20,15 @@
 
 /* Includes */
 // Linked with the html in the _includes folder
-@import 'includes/post_nav';
 @import 'includes/footer';
 @import 'includes/navbar';
-@import 'includes/share_buttons';
-@import 'includes/blog_nav';
 @import 'includes/gallery';
 @import 'includes/portfolio';
 @import 'includes/aligner';
 
 /* Posts */
 // Linked with the html in the _layouts folder
-@import 'layouts/posts';
 @import 'layouts/categories';
-@import 'layouts/blog';
 @import 'layouts/page';
 @import 'layouts/tags';
 @import 'layouts/search';
@@ -54,3 +49,6 @@ Then create your _custom.scss right next to type-on-strap.scss and add in it all
 of the unique scss that your blog needs.
 
 */
+
+/* Branch Blog Custom Styles */
+@import 'custom/branch-blog';

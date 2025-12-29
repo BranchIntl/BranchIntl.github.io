@@ -1,0 +1,186 @@
+---
+layout: branch-default
+---
+<div class="branch-blog-home">
+  <!-- Hero Section with Branch Header -->
+  <div class="branch-hero">
+    <!-- Decorative background circles -->
+    <div class="hero-bg-circle hero-bg-circle-left"></div>
+    <div class="hero-bg-circle hero-bg-circle-right"></div>
+
+    <div class="branch-header">
+      <div class="header-logo">
+        <svg width="120" height="45" viewBox="0 0 120 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="32" font-family="sans-serif" font-size="28" font-weight="600" fill="#19355E">branch</text>
+        </svg>
+      </div>
+      <div class="header-nav">
+        <a href="#login">Login</a>
+        <a href="#faq">FAQ</a>
+        <a href="#partner">Partner with us</a>
+      </div>
+    </div>
+
+    <h1 class="hero-title">Our Blog</h1>
+    <p class="hero-subtitle">Insights and guides for your financial journey</p>
+  </div>
+
+  <!-- Search Section -->
+  <div class="branch-search-section">
+    <div class="search-container">
+      <div class="search-field">
+        <input type="text" placeholder="Search..." id="blog-search">
+      </div>
+      <button class="search-button" onclick="performSearch()">Search</button>
+    </div>
+
+    <!-- Blog Posts Grid -->
+    <div class="branch-posts-grid" style="margin-top: 40px;">
+      {% if paginator.posts %}
+        {% for post in paginator.posts %}
+        <div class="branch-post-card">
+          {% if post.thumbnail %}
+          <img src="{{ post.thumbnail | relative_url }}" alt="{{ post.title }}" class="post-image">
+          {% elsif post.feature-img %}
+          <img src="{{ post.feature-img | relative_url }}" alt="{{ post.title }}" class="post-image">
+          {% else %}
+          <img src="{{ site.avatar | relative_url }}" alt="{{ post.title }}" class="post-image">
+          {% endif %}
+
+          <div class="post-meta">
+            <div class="post-category">
+              {% if post.tags and post.tags.size > 0 %}
+                {{ post.tags[0] }}
+              {% else %}
+                Finance
+              {% endif %}
+            </div>
+            <div class="post-read-time">5 min read</div>
+          </div>
+
+          <h2 class="post-title">
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </h2>
+
+          <p class="post-info">
+            {{ post.date | date: "%b %d, %Y" }}
+            {% if post.author %}
+             | by {{ post.author }}
+            {% endif %}
+          </p>
+
+          <p class="post-excerpt">
+            {% if post.excerpt %}
+              {{ post.excerpt | strip_html | truncate: 180 }}
+            {% else %}
+              {{ post.content | strip_html | truncate: 180 }}
+            {% endif %}
+          </p>
+
+          <a href="{{ post.url | relative_url }}" class="post-read-more">Read More</a>
+        </div>
+        {% endfor %}
+      {% else %}
+        <p style="grid-column: 1 / -1; text-align: center; padding: 40px;">No blog posts available.</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  {% if paginator.total_pages > 1 %}
+  <div class="branch-pagination">
+    {% if paginator.page == 1 %}
+      <span class="page-item active">1</span>
+    {% else %}
+      <a href="{{ paginator.previous_page_path | relative_url }}" class="page-item">1</a>
+    {% endif %}
+
+    {% for page in (2..paginator.total_pages) %}
+      {% if page == paginator.page %}
+        <span class="page-item active">{{ page }}</span>
+      {% else %}
+        {% if page == 2 %}
+          <a href="{{ site.baseurl }}/page{{ page }}" class="page-item">{{ page }}</a>
+        {% else %}
+          <a href="{{ site.baseurl }}/page{{ page }}" class="page-item">{{ page }}</a>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path | relative_url }}" class="page-item next">Next</a>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  <!-- Branch Footer -->
+  <footer class="branch-footer">
+    <div class="branch-footer-content">
+      <div class="footer-section">
+        <h3>Curious about Branch?</h3>
+        <ul>
+          <li><a href="/about">About</a></li>
+          <li><a href="/how-it-works">How it works</a></li>
+          <li><a href="/news">In the news</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="/policies">Policies and Cookie</a></li>
+          <li><a href="/concerns">Concerns Information</a></li>
+          <li><a href="/customer-awareness">Customer Awareness</a></li>
+          <li><a href="/grievance">Gi-Sunce Redressal</a></li>
+          <li><a href="/partners">Our Partners</a></li>
+          <li><a href="/collections">Collections Partners</a></li>
+          <li><a href="/regulatory">Understanding Regulatory Digital Lending Operations</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Download</h3>
+        <div class="download-icon">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <rect width="40" height="40" rx="8" fill="#fff"/>
+            <path d="M20 10v20m-8-8l8 8 8-8" stroke="#19355E" stroke-width="2"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h3>Contact Information</h3>
+        <p>Branch International Financial Services Pvt Ltd.<br>
+        JC AWFIS, Baner Solutions, 4th floor,<br>
+        Survey No.115/1, Aundh - Baner Link Road, Baner,<br>
+        Chamber Road,<br>
+        Mumbai, Maharashtra 400057</p>
+        <p>+91 8655597825</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <h4>Useful Links</h4>
+      <div class="footer-links">
+        <a href="/sachet-portal">Sachet Portal</a>
+        <a href="/rbi-complaint">RBI Complaint</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+function performSearch() {
+  var searchTerm = document.getElementById('blog-search').value;
+  if (searchTerm) {
+    window.location.href = '{{ site.baseurl }}/search?q=' + encodeURIComponent(searchTerm);
+  }
+}
+
+// Allow search on Enter key
+document.getElementById('blog-search').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') {
+    performSearch();
+  }
+});
+</script>
