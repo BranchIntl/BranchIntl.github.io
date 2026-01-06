@@ -834,6 +834,37 @@ body:has(.branch-blog-home) > footer {
         }
       }
 
+      .branch-comments-section {
+        margin: 60px 0;
+        padding: 40px 0;
+        border-top: 1px solid #eee;
+
+        .comments-title {
+          font-family: 'Circular Std', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+          font-weight: 700;
+          font-size: 24px;
+          line-height: 32px;
+          letter-spacing: -1px;
+          color: $black;
+          margin: 0 0 32px 0;
+        }
+
+        .comments {
+          background: $gray-001;
+          border-radius: 12px;
+          padding: 24px;
+        }
+
+        // Cusdis widget styling overrides
+        #cusdis_thread {
+          iframe {
+            border-radius: 8px;
+            min-height: 400px;
+            height: auto !important;
+          }
+        }
+      }
+
       .branch-more-to-read {
         margin-top: 60px;
 

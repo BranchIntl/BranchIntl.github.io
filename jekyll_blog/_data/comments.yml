@@ -7,7 +7,7 @@ disqus:
 
 # Cusdis configuration  
 cusdis:
-  app_id:                       # Your Cusdis app ID
+  app_id: 19b0aff7-a6f1-4074-a04b-7fa2c09c9273
   lang:                         # Language code (e.g., zh-cn, es, tr, pt-BR)
 
 # Utterances configuration
