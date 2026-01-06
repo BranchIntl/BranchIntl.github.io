@@ -129,6 +129,14 @@ layout: branch-default
         </button>
       </div>
 
+      <!-- Comments Section -->
+      {% if site.data.comments.cusdis.app_id %}
+      <div class="branch-comments-section">
+        <h2 class="comments-title">Comments</h2>
+        {% include social/cusdis.liquid %}
+      </div>
+      {% endif %}
+
       <!-- More to Read Section -->
       <div class="branch-more-to-read">
         <h2 class="more-to-read-title">More to read</h2>
